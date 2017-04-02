@@ -2,13 +2,16 @@
 
 ## Development
 
-When developing we serve the code over HTTP from the development server:
+When developing, we serve the code from an HTTP development server. This gives us nice stuff like live reloading
+for free.
+
+First we need to start the web server:
 
 ```bash
 ng serve
 ```
 
-Then we can start our electron app from a second terminal from the project root:
+Then we can start our electron app:
 
 ```bash
 electron .
@@ -16,7 +19,7 @@ electron .
 
 ## Building for production
 
-In production we serve the application from the file system.
+In a packaged production application all the files are served from the file system. To build and run:
 
 ```bash
 yarn run build
