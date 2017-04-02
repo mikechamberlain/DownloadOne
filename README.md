@@ -1,28 +1,31 @@
 # DownloadOne
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+## Development
 
-## Development server
+When developing we serve the code over HTTP from the development server:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+ng serve
+```
 
-## Code scaffolding
+Then we can start our electron app from a second terminal from the project root:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+```bash
+electron .
+```
 
-## Build
+## Building for production
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+In production we serve the application from the file system.
 
-## Running unit tests
+```bash
+yarn run build
+cd dist
+electron .
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+A shortcut for the aboe is:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```bash
+yarn run prod
+```

@@ -1,4 +1,7 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = require('electron');
+require('dotenv').config();
+const path = require('path');
+const url = require('url');
 
 let win = null;
 
@@ -8,11 +11,16 @@ app.on('ready', function () {
   win = new BrowserWindow({width: 1000, height: 600});
 
   // Specify entry point
-  win.loadURL('http://localhost:4200');
-
-  // Show dev tools
-  // Remove this line before distributing
-  win.webContents.openDevTools();
+  if (process.env.packaged === 'true') {
+    win.loadURL(url.format({
+      pathname: path.join(__dirname, 'index.html'),
+      protocol: 'file:',
+      slashes: true
+    }));
+  } else {
+      win.loadURL(process.env.entryPoint);
+      win.webContents.openDevTools();
+  }
 
   // Remove window once app is closed
   win.on('closed', function () {
@@ -29,6 +37,7 @@ app.on('activate', () => {
 
 app.on('window-all-closed', function () {
   // if (process.platform != 'darwin') {
-  //   app.quit();
+  //
   // }
+  app.quit();
 });
