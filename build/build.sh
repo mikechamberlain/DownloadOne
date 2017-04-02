@@ -2,4 +2,4 @@
 
 ng build --prod --aot --base-href .
 cp {main.js,package.json} dist
-cp .env.prod dist/.env
+cp build/env.prod.js dist/env.js

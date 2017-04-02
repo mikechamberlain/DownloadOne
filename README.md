@@ -1,9 +1,15 @@
 # DownloadOne
 
+## Prerequisites
+
+- yarn
+- wine
+- electron
+- electron-packager
+
 ## Development
 
-When developing, we serve the code from an HTTP development server. This gives us nice stuff like live reloading
-for free.
+During development, code is served from the HTTP development server. This gives us nice stuff like live reloading.
 
 First we need to start the web server:
 
@@ -17,18 +23,26 @@ Then we can start our electron app:
 electron .
 ```
 
-## Building for production
+## Building
 
-In a packaged production application all the files are served from the file system. To build and run:
+In production, code is served from the local file system. To build and run:
 
 ```bash
-yarn run build
+yarn build
 cd dist
 electron .
 ```
 
-A shortcut for the aboe is:
+A shortcut for the above is:
 
 ```bash
-yarn run prod
+yarn prod
+```
+
+## Packaging
+
+To package the application as platform-specific executables:
+
+```bash
+yarn package
 ```
