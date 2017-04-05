@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DownloadQueueService } from "./download-queue.service";
+import { Download } from "../models/download";
 
 @Component({
     selector: 'dl-download-queue',
@@ -7,18 +8,15 @@ import { DownloadQueueService } from "./download-queue.service";
         <p>
             Downloads:
         </p>
-        <div *ngFor="let download of queueService.queue">
+        <div *ngFor="let download of queue">
             {{download.url}}
         </div>
     `,
     styleUrls: ['./download-queue.component.scss']
 })
 export class DownloadQueueComponent implements OnInit {
+    @Input() queue: Download[];
 
-    constructor(public queueService: DownloadQueueService) {
+    ngOnInit(): void {
     }
-
-    ngOnInit() {
-    }
-
 }
