@@ -6,6 +6,6 @@ export class DownloadOnePage {
   }
 
   getParagraphText() {
-    return element(by.css('do-root h1')).getText();
+    return element(by.css('dl-root h1')).getText();
   }
 }
