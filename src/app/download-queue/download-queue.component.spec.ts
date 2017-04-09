@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DownloadQueueComponent } from './download-queue.component';
 import { DownloadQueueService } from "./download-queue.service";
+import { DownloadComponent } from "./download.component";
 
 describe('DownloadQueueComponent', () => {
     let component: DownloadQueueComponent;
@@ -9,7 +10,7 @@ describe('DownloadQueueComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [DownloadQueueComponent],
+            declarations: [DownloadQueueComponent, DownloadComponent],
             providers: [DownloadQueueService]
         })
         .compileComponents();

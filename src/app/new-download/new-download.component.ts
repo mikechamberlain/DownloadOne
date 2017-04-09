@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
     styleUrls: ['./new-download.component.scss'],
     template: `
         <div [formGroup]="form">
-            <input type="text" formControlName="url"/>{{url}}
+            <input type="text" formControlName="url" />
             <button (click)="addDownload()">Add</button>
         </div>
     `,
@@ -22,7 +22,7 @@ export class NewDownloadComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.fb.group({
-            url: ['', Validators.required]
+            url: ['http://speedtest.ftp.otenet.gr/files/test100k.db', Validators.required]
         });
     }
 

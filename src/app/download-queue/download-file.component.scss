@@ -1,0 +1,11 @@
+:host {
+    display: block;
+    border-top: 1px solid gray;
+    padding-bottom: 20px;
+}
+
+.progress {
+    height: 20px;
+    background: blue;
+    transition: width 1s;
+}

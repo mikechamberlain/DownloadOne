@@ -1,11 +1,19 @@
 import { DownloadQueueService } from './download-queue.service';
 import { Download } from "../models/download";
+import { DownloadMessage } from "../messaging/download-message";
+import { Subject } from "rxjs";
 
 describe('DownloadQueueService', () => {
     let service: DownloadQueueService;
+    let messageBusService: any;
 
     beforeEach(() => {
-        service = new DownloadQueueService();
+        messageBusService = {
+            messages: new Subject<DownloadMessage>(),
+            sendPrepareDownload: () => {}
+        };
+        service = new DownloadQueueService(messageBusService);
+
     });
 
     it('should initialize with an empty queue', () => {
@@ -35,5 +43,13 @@ describe('DownloadQueueService', () => {
         service.enqueue(download);
 
         expect(queue).toEqual([download]);
+    });
+
+    it('should add to downloads object', () => {
+        const download = new Download('');
+
+        service.enqueue(download);
+
+        expect(service.downloads[download.id]).toEqual(download);
     });
 });
